@@ -3,12 +3,13 @@ Local Binary Patterns RSNA
 
 # Install 
 
+```
   $ git clone git@github.com:ai-uff/local-binary-patterns-rsna.git
   $ cd local-binary-patterns-rsna
   $ python3 --version # Python 3.6.7
   $ pip --version # pip 19.3.1 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)
   $ pip install -r requirements.txt
-
+```
 # Instructions
 
 The image directory must have the following format:

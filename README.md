@@ -33,8 +33,10 @@ images
 
 # Run on command line
 
+```
   $ python3 predict.py --training images/training --testing images/testing
-  
+```
+
 # Result
 
 A window containing each training image in LBP format and after each learning process a window containing the result for the test images.

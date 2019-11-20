@@ -21,10 +21,10 @@ class LocalBinaryPatterns:
 			range=(0, self.numPoints + 2))
 
 		cv2.imshow("Image", lbp)
-		cv2.waitKey(0)
-
 		ax = plt.hist(lbp.ravel(), bins = 256)
 		plt.show()
+
+		cv2.waitKey(0)
 
 		# Normaliza o histograma.
 		hist = hist.astype("float")

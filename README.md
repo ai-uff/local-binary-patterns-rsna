@@ -13,6 +13,7 @@ Local Binary Patterns RSNA
 
 The image directory must have the following format:
 
+```
 images
 ├── testing ----> An image for each label you want to test your model
 │   ├── epidural.png ----> label-or-class.png (in this case the label or class is epidural)
@@ -28,7 +29,7 @@ images
         ├── intraparenchymal_02.png
         ├── intraparenchymal_03.png
         └── intraparenchymal_04.png
-
+```
 
 # Run on command line
 

@@ -20,7 +20,7 @@ class LocalBinaryPatterns:
 			bins=np.arange(0, self.numPoints + 3),
 			range=(0, self.numPoints + 2))
 
-		cv2.imshow("Image", lbp)
+		cv2.imshow("LBP", lbp)
 		ax = plt.hist(lbp.ravel(), bins = 256)
 		plt.show()
 
@@ -31,4 +31,4 @@ class LocalBinaryPatterns:
 		hist /= (hist.sum() + eps)
 
 		# Retorna o histograma de LBP.
-		return hist
+		return hist # Feature

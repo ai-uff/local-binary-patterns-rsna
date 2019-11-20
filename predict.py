@@ -28,6 +28,8 @@ for imagePath in paths.list_images(args["training"]):
 	# Carrega a imagem, converte para escala cinza e descreve isso com LBP.
 	image = cv2.imread(imagePath)
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+	# Gera as imagens LBP e Histograma
 	hist = desc.describe(gray) # Retorna o resultado do descritor LBP.
 
 	# Extrai os labels dos paths da imagem, depois atualiza a
@@ -35,10 +37,17 @@ for imagePath in paths.list_images(args["training"]):
 	labels.append(imagePath.split(os.path.sep)[-2])
 	data.append(hist)
 
+# Resultado
+# data = [hist_1, ... , ..., hist_8]
+# labels = ['epidural', ..., 'intraparenchymal']
+
 # Treina um classificador linear SVM nos dados
 # Para maiores informações: https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html
 model = LinearSVC(C=50.0, random_state=42, max_iter=1500) # Cria modelo com os parâmetros citados.
 model.fit(data, labels) # Treina o modelo, como parâmetro recebe os dados e os labels (rótulos das classes)
+
+# Resultado
+# Modelo está treinado
 
 # Para cada descriotor previamente extraido dos dados deve existir um label que os identifique.
 # Descritor da imagem 1 será classificado como rótulo e assim por diante.
@@ -56,5 +65,5 @@ for imagePath in paths.list_images(args["testing"]):
 	# Mostra a imagem e a previsão
 	cv2.putText(image, prediction[0], (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
 		0.4, (0, 0, 255), 1)
-	cv2.imshow("Image", image)
+	cv2.imshow("Prediction", image)
 	cv2.waitKey(0)

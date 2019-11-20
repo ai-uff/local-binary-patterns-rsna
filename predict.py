@@ -55,6 +55,6 @@ for imagePath in paths.list_images(args["testing"]):
 
 	# Mostra a imagem e a previsão
 	cv2.putText(image, prediction[0], (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
-		1.0, (0, 0, 255), 3)
+		0.4, (0, 0, 255), 1)
 	cv2.imshow("Image", image)
 	cv2.waitKey(0)

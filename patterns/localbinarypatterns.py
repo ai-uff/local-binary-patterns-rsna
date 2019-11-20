@@ -2,6 +2,7 @@
 from skimage import feature
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
 
 class LocalBinaryPatterns:
 	def __init__(self, numPoints, radius):
@@ -21,6 +22,10 @@ class LocalBinaryPatterns:
 
 		cv2.imshow("Image", lbp)
 		cv2.waitKey(0)
+
+		ax = plt.hist(lbp.ravel(), bins = 256)
+		plt.show()
+
 		# Normaliza o histograma.
 		hist = hist.astype("float")
 		hist /= (hist.sum() + eps)
